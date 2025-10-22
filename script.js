@@ -58,4 +58,24 @@ musicBtn.addEventListener("click", () => {
 const hiddenPlayer = document.createElement('div');
 hiddenPlayer.id = 'player';
 hiddenPlayer.style.display = 'none';
-document.body.appendChild(hiddenPlayer);
+document.body.appendChild(hiddenPlayer);// Lightbox ảnh
+const galleryImages = document.querySelectorAll(".gallery-grid img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".lightbox-close");
+
+galleryImages.forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.add("active");
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+});
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) lightbox.classList.remove("active");
+});
+
