@@ -1,8 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Playfair Display', serif;
@@ -12,6 +8,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Hero */
 header {
   position: relative;
   height: 100vh;
@@ -22,37 +19,42 @@ header {
   color: white;
 }
 
-header .overlay {
+.overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.35);
 }
 
-.hero-text {
+.hero-content {
   position: relative;
   z-index: 2;
 }
 
-.couple-name {
+.names {
   font-family: 'Great Vibes', cursive;
   font-size: 4rem;
+  margin-bottom: 10px;
 }
 
-.date {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
+.date { font-size: 1.5rem; }
+
+#music-btn {
+  position: absolute;
+  top: 20px; right: 20px;
+  border: none; background: rgba(255,255,255,0.7);
+  border-radius: 50%; width: 45px; height: 45px;
+  cursor: pointer; font-size: 1.5rem;
 }
 
+/* Section Fade */
 section {
   padding: 80px 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-in-out;
+  opacity: 0; transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
 section.fade-in {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; transform: translateY(0);
 }
 
 h2 {
@@ -62,6 +64,26 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* Countdown */
+#timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#timer div {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+#timer span {
+  font-size: 2rem;
+  color: #d46a6a;
+}
+
+/* Gallery */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -71,78 +93,44 @@ h2 {
 .gallery-grid img {
   width: 100%;
   border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
 
-.gallery-grid img:hover {
-  transform: scale(1.03);
-}
+.gallery-grid img:hover { transform: scale(1.03); }
 
-#timer {
-  display: flex;
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85);
   justify-content: center;
-  gap: 20px;
+  align-items: center;
 }
 
-#timer div {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px 25px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+.lightbox.active { display: flex; }
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
 }
 
-#timer span {
+.lightbox-close {
+  position: absolute;
+  top: 30px; right: 40px;
   font-size: 2rem;
-  color: #d46a6a;
+  color: white;
+  cursor: pointer;
+  user-select: none;
 }
 
 footer {
   background: #ffe8ef;
   padding: 20px;
   color: #333;
-}
-
-#music-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.7);
-  border: none;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  width: 45px;
-  height: 45px;
-}
-/* Lightbox ảnh */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-}
-
-.lightbox.active {
-  display: flex;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-  user-select: none;
+  font-size: 0.95rem;
 }
